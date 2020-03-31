@@ -34,7 +34,7 @@ RUN wget -O - https://storage.googleapis.com/golang/go1.13.3.linux-${!GOLANG_ARC
 # Docker
 ENV DOCKER_URL_amd64=https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_18.06.3~ce~3-0~ubuntu_amd64.deb \
     DOCKER_URL_arm=https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/armhf/docker-ce_18.06.3~ce~3-0~ubuntu_armhf.deb \
-    DOCKER_URL_arm64=https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/arm64/docker-ce_18.06.3~ce~3-0~ubuntu_amd64.deb \
+    DOCKER_URL_arm64=https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/arm64/docker-ce_18.06.3~ce~3-0~ubuntu_arm64.deb \
     DOCKER_URL=DOCKER_URL_${ARCH}
 
 RUN wget ${!DOCKER_URL} -O docker_ce_${ARCH} && dpkg -i docker_ce_${ARCH}
