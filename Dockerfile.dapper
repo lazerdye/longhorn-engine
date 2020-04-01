@@ -56,9 +56,10 @@ RUN wget -O /usr/local/bin/grpc_health_probe https://github.com/grpc-ecosystem/g
     chmod +x /usr/local/bin/grpc_health_probe
 
 # protoc
+ENV PROTOC_ARCH_amd64=x86_64 PROTOC_ARCH_arm64=aarch_64 PROTOC_ARCH=PROTOC_ARCH_${ARCH}
 RUN cd /usr/src && \
-    wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip && \
-    unzip protoc-3.7.1-linux-x86_64.zip -d /usr/local/
+    wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-${!PROTOC_ARCH}.zip && \
+    unzip protoc-3.7.1-linux-${!PROTOC_ARCH}.zip -d /usr/local/
 
 # protoc-gen-go
 RUN cd /go/src/github.com/ && \
